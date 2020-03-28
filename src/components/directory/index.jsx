@@ -12,13 +12,14 @@ import './index.styles.scss';
 
 export const Directory = () => {
   const { directoryMenu } = useDirectoryMenu();
-  const directoryMenuJSX = directoryMenu.map(({ id, title, imageUrl, size }) => (
+  const directoryMenuJSX = directoryMenu.map(({ id, title, imageUrl, size, linkUrl }) => (
     <MenuItem
       size={size}
       key={id}
       title={title}
       subtitle='SHOP NOW'
       imageUrl={imageUrl}
+      linkUrl={linkUrl}
     />
   ));
 
