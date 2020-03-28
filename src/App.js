@@ -1,5 +1,6 @@
 // Core
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 // Components
 import { HomePage } from './pages';
@@ -9,9 +10,9 @@ import './App.css';
 
 function App() {
   return (
-    <>
-      <HomePage />
-    </>
+    <Switch>
+      <Route exact path='/' component={HomePage} />
+    </Switch>
   );
 }
 
