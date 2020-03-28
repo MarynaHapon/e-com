@@ -1,6 +1,9 @@
 // Core
 import React from 'react';
 
+// Other
+import './homepage.styles.scss';
+
 export const HomePage = () => {
   return (
     <div className='homepage'>
