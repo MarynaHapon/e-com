@@ -1,11 +1,17 @@
+// Core
 import React from 'react';
+
+// Components
+import { HomePage } from './pages';
+
+// Other
 import './App.css';
 
 function App() {
   return (
-    <div>
-      e-com
-    </div>
+    <>
+      <HomePage />
+    </>
   );
 }
 
