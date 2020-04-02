@@ -9,7 +9,7 @@ import './index.styles.scss';
 
 export const HomePage = () => {
   return (
-    <div className='homepage'>
+    <div className='homePage'>
       <Directory />
     </div>
   );
