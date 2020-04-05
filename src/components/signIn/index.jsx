@@ -6,13 +6,16 @@ import { Input, Button } from '../../components';
 
 // Other
 import './index.styles.scss';
-import { signInWithGoogle } from '../../firebase/utils';
+import { auth, signInWithGoogle } from '../../firebase/utils';
 
 export const SignIn = () => {
   const [ data, setData ] = useState({
     email: '',
     password: '',
   });
+
+  const [ successMessage, setSuccessMessage ] = useState('');
+  const [ errorMessage, setErrorMessage ] = useState('');
 
   const onChangeHandler = (e) => {
     const { value, name } = e.target;
@@ -22,18 +25,40 @@ export const SignIn = () => {
     })
   };
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
-    setData({
-      email: '',
-      password: '',
-    })
+
+    const { email, password } = data;
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      setData({
+        email: '',
+        password: '',
+      });
+      setErrorMessage('');
+      setSuccessMessage('Success');
+    } catch (e) {
+      setErrorMessage(e.message);
+    }
   };
+
+  const errorMessageJSX = errorMessage && (
+    <span className='massage isError'>{errorMessage}</span>
+  );
+
+  const successMessageJSX = successMessage && (
+    <span className='massage isSuccess'>{successMessage}</span>
+  );
 
   return (
     <div className='signIn'>
       <h1 className='title'>I already have an account</h1>
       <span>Sign in with your email and password</span>
+      <p>
+        {successMessageJSX}
+        {errorMessageJSX}
+      </p>
 
       <form onSubmit={onSubmitHandler}>
         <Input
