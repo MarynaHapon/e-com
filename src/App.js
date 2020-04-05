@@ -10,15 +10,26 @@ import { Header } from './components/header';
 
 // Other
 import './App.css';
-import { auth } from './firebase/utils';
+import { auth, createUserProfileDocument } from './firebase/utils';
 
 function App() {
   const [ user, setUser ] = useState(null);
 
   useState(() => {
-    const unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-      setUser(user);
-      console.log(user);
+    const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot((snapshot) => {
+          console.log(snapshot);
+          setUser({
+            id: snapshot.id,
+            ...snapshot.data(),
+          });
+        });
+      } else {
+        setUser(userAuth)
+      }
     });
 
     console.log(user);

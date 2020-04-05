@@ -4,5 +4,6 @@ export { MenuItem } from './menuItem';
 export { CollectionPreview } from './collectionPreview';
 export { CollectionItem } from './collectionItem';
 export { SignIn } from './signIn';
+export { SignUp } from './signUp';
 export { Input } from './input';
 export { Button } from './button';

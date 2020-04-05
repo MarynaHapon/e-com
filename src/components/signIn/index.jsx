@@ -16,7 +16,10 @@ export const SignIn = () => {
 
   const onChangeHandler = (e) => {
     const { value, name } = e.target;
-    setData({ [name]: value })
+    setData({
+      ...data,
+      [name]: value,
+    })
   };
 
   const onSubmitHandler = (e) => {

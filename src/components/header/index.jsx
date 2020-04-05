@@ -9,8 +9,6 @@ import { auth } from '../../firebase/utils';
 
 export const Header = ({ user }) => {
   const signOut = () => auth.signOut();
-  console.log(user);
-
 
   const authActionJSX = user ? (
     <div className='navLink' onClick={signOut}>
