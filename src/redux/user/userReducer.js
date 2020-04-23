@@ -1,3 +1,6 @@
+// Other
+import { SET_USER } from '../user';
+
 const initialState = {
   user: null,
 };
