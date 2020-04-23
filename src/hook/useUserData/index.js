@@ -1,13 +1,14 @@
 // Core
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 // Other
 import { auth, createUserProfileDocument } from '../../firebase/utils';
-import { setUser } from '../../redux/user';
+import { setUser, userSelector } from '../../redux/user';
 
 export const useUserData = () => {
   const dispatch = useDispatch();
+  const { user } = useSelector(userSelector());
 
   useEffect(() => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
@@ -29,4 +30,8 @@ export const useUserData = () => {
       unsubscribeFromAuth();
     }
   }, [ auth ]);
+
+  return {
+    user,
+  }
 };
