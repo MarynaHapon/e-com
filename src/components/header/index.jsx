@@ -1,14 +1,19 @@
 // Core
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 // Other
 import './index.styles.scss';
 import { ReactComponent as Logo } from '../../assets/images/logo.svg';
 import { auth } from '../../firebase/utils';
+import { userSelector } from '../../redux/user';
 
-export const Header = ({ user }) => {
+export const Header = () => {
+  const { user } = useSelector(userSelector);
   const signOut = () => auth.signOut();
+
+  console.log(user);
 
   const authActionJSX = user ? (
     <div className='navLink' onClick={signOut}>

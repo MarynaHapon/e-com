@@ -2,7 +2,7 @@
 import { combineReducers } from 'redux';
 
 // Other
-import { userReducer } from './user/userReducer';
+import { userReducer } from './user';
 
 export const roodReducer = combineReducers({
   user: userReducer,

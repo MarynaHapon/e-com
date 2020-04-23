@@ -1,6 +1,7 @@
 // Core
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 // Pages
 import { HomePage, ShopPage, AuthPage } from './pages';
@@ -11,9 +12,10 @@ import { Header } from './components/header';
 // Other
 import './App.css';
 import { auth, createUserProfileDocument } from './firebase/utils';
+import { setUser } from './redux/user';
 
 function App() {
-  const [ user, setUser ] = useState(null);
+  const dispatch = useDispatch();
 
   useState(() => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
@@ -21,27 +23,24 @@ function App() {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot((snapshot) => {
-          console.log(snapshot);
-          setUser({
+          dispatch(setUser({
             id: snapshot.id,
             ...snapshot.data(),
-          });
+          }));
         });
       } else {
-        setUser(userAuth)
+        dispatch(setUser(userAuth));
       }
     });
-
-    console.log(user);
 
     return () => {
       unsubscribeFromAuth();
     }
-  }, [ user ]);
+  }, [ auth ]);
 
   return (
     <>
-      <Header user={user} />
+      <Header />
       <Switch>
         <Route exact path='/' component={HomePage} />
         <Route path='/shop' component={ShopPage} />
