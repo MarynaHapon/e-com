@@ -1,6 +1,6 @@
 // Core
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 // Hooks
 import { useUserData } from './hook/useUserData';
@@ -15,7 +15,8 @@ import { Header } from './components/header';
 import './App.css';
 
 function App() {
-  useUserData();
+  const { user } = useUserData();
+  const authRenderHandler = () => user ? <Redirect to='/' /> : <AuthPage />;
 
   return (
     <>
@@ -23,7 +24,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={HomePage} />
         <Route path='/shop' component={ShopPage} />
-        <Route path='/auth' component={AuthPage} />
+        <Route exact path='/auth' render={authRenderHandler} />
       </Switch>
     </>
   );

@@ -8,7 +8,7 @@ import { setUser, userSelector } from '../../redux/user';
 
 export const useUserData = () => {
   const dispatch = useDispatch();
-  const { user } = useSelector(userSelector());
+  const { user } = useSelector(userSelector);
 
   useEffect(() => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
