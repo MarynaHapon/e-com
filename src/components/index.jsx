@@ -7,3 +7,4 @@ export { SignIn } from './signIn';
 export { SignUp } from './signUp';
 export { Input } from './input';
 export { Button } from './button';
+export { CardIcon } from './cartIcon';
