@@ -28,7 +28,7 @@ export const Header = () => {
       Sign In
     </Link>
   );
-  
+
   const cartDropDownJSX = isVisible ? <CartDropDown /> : null;
 
   return (
