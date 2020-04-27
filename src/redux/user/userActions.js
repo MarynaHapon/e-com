@@ -1,7 +1,7 @@
 // Other
-import { SET_USER } from '../user';
+import { USER_SET } from '../user';
 
 export const setUser = (user) => ({
-  type: SET_USER,
+  type: USER_SET,
   payload: user,
 });

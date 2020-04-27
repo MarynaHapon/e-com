@@ -1,5 +1,5 @@
 // Other
-import { SET_USER } from '../user';
+import { USER_SET } from '../user';
 
 const initialState = {
   user: null,
@@ -7,7 +7,7 @@ const initialState = {
 
 export const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_USER':
+    case USER_SET:
       return {
         ...state,
         user: action.payload,
