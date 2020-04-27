@@ -1,5 +1,5 @@
-export { cardReducer } from './userReducer';
-export { cartSelector } from './userSelector';
-export { toggleCartVisibility } from './userActions';
-export { CART_TOGGLE_VISIBILITY } from './userTypes';
+export { cartReducer } from './reducer';
+export { cartSelector } from './selector';
+export { toggleCartVisibility } from './actions';
+export { CART_TOGGLE_VISIBILITY } from './types';
 
