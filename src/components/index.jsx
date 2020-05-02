@@ -8,4 +8,5 @@ export { SignUp } from './signUp';
 export { Input } from './input';
 export { Button } from './button';
 export { CardIcon } from './cartIcon';
+export { CartItem } from './cartItem';
 export { CartDropDown } from './cartDropDown';
