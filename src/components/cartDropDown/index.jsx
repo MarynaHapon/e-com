@@ -12,9 +12,9 @@ import { cartSelector } from '../../redux/cart';
 export const CartDropDown = () => {
   const { cartItems } = useSelector(cartSelector);
 
-  const cartItemsJSX = cartItems.map((item) => (
-    <CartItem key={item.id} item={item} />
-  ));
+  const cartItemsJSX = cartItems.length
+    ? cartItems.map((item) => <CartItem key={item.id} item={item} />)
+    : <span className='cartMessage'>Your cart is empty</span>;
 
   return (
     <div className='cartDropDown'>

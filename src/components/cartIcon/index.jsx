@@ -1,20 +1,24 @@
 // Core
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 // Other
 import './index.styles.scss';
 import { ReactComponent as IconBag } from '../../assets/images/iconBag.svg';
-import { toggleCartVisibility } from '../../redux/cart';
+import { toggleCartVisibility, cartSelector } from '../../redux/cart';
 
 export const CardIcon = () => {
   const dispatch = useDispatch();
+  const { cartItems } = useSelector(cartSelector);
+
   const onClickHandler = () => dispatch(toggleCartVisibility());
+
+  const count = cartItems.reduce((acc, cardItem) => acc + cardItem.quantity, 0);
 
   return (
     <div className='cartIcon' onClick={onClickHandler}>
       <IconBag className='cartIconBag' />
-      <span className='cartIconCount'>0</span>
+      <span className='cartIconCount'>{count}</span>
     </div>
   )
 };
