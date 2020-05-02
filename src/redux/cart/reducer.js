@@ -2,8 +2,13 @@
 import {
   CART_TOGGLE_VISIBILITY,
   CART_ADD_ITEM,
+  CART_REMOVE_ITEM,
+  CART_CLEAR_ITEM,
 } from '../cart';
-import { updateCartItemQuantity } from '../cart';
+import {
+  increaseCartItemQuantity,
+  decreaseCartItemQuantity,
+} from '../cart';
 
 const initialState = {
   isVisible: false,
@@ -20,7 +25,17 @@ export const cartReducer = (state = initialState, action) => {
     case CART_ADD_ITEM:
       return {
         ...state,
-        cartItems: updateCartItemQuantity(state.cartItems, action.payload),
+        cartItems: increaseCartItemQuantity(state.cartItems, action.payload),
+      };
+    case CART_REMOVE_ITEM:
+      return {
+        ...state,
+        cartItems: decreaseCartItemQuantity(state.cartItems, action.payload),
+      };
+    case CART_CLEAR_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((cartItem) => cartItem !== action.payload)
       };
     default:
       return state;

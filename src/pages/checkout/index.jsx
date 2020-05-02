@@ -33,11 +33,11 @@ export const CheckoutPage = () => {
         </div>
 
         <div className='headerBlock'>
-          <span>Product</span>
+          <span>Quantity</span>
         </div>
 
         <div className='headerBlock'>
-          <span>Quantity</span>
+          <span>Price</span>
         </div>
 
         <div className='headerBlock'>
