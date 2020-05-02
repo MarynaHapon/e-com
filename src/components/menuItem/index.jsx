@@ -1,13 +1,15 @@
 // Core
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 // Other
 import './index.styles.scss';
 
-const Item = ({ title, subtitle, imageUrl, size, history, linkUrl, match }) => {
+export const MenuItem = ({ title, subtitle, imageUrl, size, history, linkUrl, match }) => {
+  const routerHistory = useHistory();
+
   const clickHandler = () => {
-    history.push(`${match.url}${linkUrl}`);
+    routerHistory.push(`${match.url}${linkUrl}`);
   };
 
   return (
@@ -20,5 +22,3 @@ const Item = ({ title, subtitle, imageUrl, size, history, linkUrl, match }) => {
     </div>
   )
 };
-
-export const MenuItem = withRouter(Item);

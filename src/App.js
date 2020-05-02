@@ -6,7 +6,12 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { useUserData } from './hook/useUserData';
 
 // Pages
-import { HomePage, ShopPage, AuthPage } from './pages';
+import {
+  HomePage,
+  ShopPage,
+  AuthPage,
+  CheckoutPage,
+} from './pages';
 
 // Components
 import { Header } from './components/header';
@@ -25,6 +30,7 @@ function App() {
         <Route exact path='/' component={HomePage} />
         <Route path='/shop' component={ShopPage} />
         <Route exact path='/auth' render={authRenderHandler} />
+        <Route exact path='/checkout' component={CheckoutPage} />
       </Switch>
     </>
   );
