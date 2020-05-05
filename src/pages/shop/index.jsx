@@ -1,5 +1,9 @@
 // Core
 import React from 'react';
+import { Route } from 'react-router-dom';
+
+// Pages
+import { CollectionPage } from '../../pages';
 
 // Components
 import { CollectionOverview } from '../../components';
@@ -7,11 +11,11 @@ import { CollectionOverview } from '../../components';
 // Other
 import './index.styles.scss';
 
-export const ShopPage = () => {
+export const ShopPage = ({ match: { path } }) => {
   return (
     <div className='shopPage'>
-      <h1 className='title'>Shop Page</h1>
-      <CollectionOverview />
+      <Route exact path={path} component={CollectionOverview} />
+      <Route path={`${path}/:collectionId`} component={CollectionPage} />
     </div>
   );
 };
