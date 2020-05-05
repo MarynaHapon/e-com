@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Hooks
-import { useDirectoryMenu } from './hook/useDirectoryMenu';
+import { useDirectoryData } from '../../hook/useDirectoryData';
 
 // Components
 import { MenuItem } from '../../components';
@@ -11,8 +11,8 @@ import { MenuItem } from '../../components';
 import './index.styles.scss';
 
 export const Directory = () => {
-  const { directoryMenu } = useDirectoryMenu();
-  const directoryMenuJSX = directoryMenu.map(({ id, title, imageUrl, size, linkUrl }) => (
+  const { directoryData } = useDirectoryData();
+  const directoryMenuJSX = directoryData.map(({ id, title, imageUrl, size, linkUrl }) => (
     <MenuItem
       size={size}
       key={id}

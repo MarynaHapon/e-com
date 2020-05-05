@@ -1,4 +1,4 @@
-export const directoryData = [
+export const data = [
   {
     title: 'Product 1',
     imageUrl: 'https://www.getthegloss.com/media/image/korean-skincare.jpg',
