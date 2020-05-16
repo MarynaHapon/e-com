@@ -12,6 +12,9 @@ import './index.styles.scss';
 
 export const Directory = () => {
   const { directoryData } = useDirectoryData();
+
+  console.log('directoryData', directoryData);
+
   const directoryMenuJSX = directoryData.map(({ id, title, imageUrl, size, linkUrl }) => (
     <MenuItem
       size={size}

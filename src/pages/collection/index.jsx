@@ -12,12 +12,16 @@ import './index.styles.scss';
 
 export const CollectionPage = ({ match }) => {
   const { collection } = useCollectionData(match.params.collectionId);
+  const { title, items } = collection;
 
-  console.log(collection);
+  const itemsJSX = items.map(({ id, name, price, imageUrl }) => (
+    <CollectionItem key={id} id={id} name={name} price={price} imageUrl={imageUrl} />
+  ));
 
   return (
     <section className='collectionPage'>
-      <h2>COLLECTION PAGE</h2>
+      <h2 className='title'>{title}</h2>
+      <div className='items'>{itemsJSX}</div>
     </section>
   )
 };

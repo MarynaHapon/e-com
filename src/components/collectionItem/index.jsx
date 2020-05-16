@@ -10,6 +10,8 @@ import './index.styles.scss';
 import { addItemToCart } from '../../redux/cart';
 
 export const CollectionItem = (item) => {
+  console.log(item);
+
   const { id, name, price, imageUrl } = item;
   const dispatch = useDispatch();
   const onClickHandler = () => dispatch(addItemToCart(item));

@@ -5,12 +5,10 @@ import { useHistory } from 'react-router-dom';
 // Other
 import './index.styles.scss';
 
-export const MenuItem = ({ title, subtitle, imageUrl, size, history, linkUrl, match }) => {
+export const MenuItem = ({ title, subtitle, imageUrl, size, history, linkUrl }) => {
   const routerHistory = useHistory();
 
-  const clickHandler = () => {
-    routerHistory.push(`${match.url}${linkUrl}`);
-  };
+  const clickHandler = () => { routerHistory.push(linkUrl) };
 
   return (
     <div className={`menuItem ${size}`} onClick={clickHandler}>
