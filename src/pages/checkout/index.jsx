@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 // Components
-import { CheckoutItem } from '../../components';
+import { CheckoutItem, CheckoutButton } from '../../components';
 
 // Other
 import './index.styles.scss';
@@ -47,12 +47,18 @@ export const CheckoutPage = () => {
 
       <div className='body'>
         {cartItemsJSX}
+        <CheckoutButton price={total} />
+      </div>
+
+      <div className='testWarning'>
+        *Please use the following test credit card for payments*
+        <br />
+        4242 4242 4242 4242 - Exp 01/22 - CVV: 123
       </div>
 
       <div className='total'>
         <span>TOTAL: ${total}</span>
       </div>
-      checkoutPage
     </div>
   )
 };

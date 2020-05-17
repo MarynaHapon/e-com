@@ -44,8 +44,6 @@ export const SignUp = () => {
       });
       setErrorMessage('');
       setSuccessMessage('Success');
-
-      console.log(user);
     } catch (e) {
       setErrorMessage(e.message);
     }
@@ -57,8 +55,6 @@ export const SignUp = () => {
       ...data,
       [name]: value,
     });
-
-    console.log(data);
   };
 
   const errorMessageJSX = errorMessage && (

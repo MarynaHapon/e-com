@@ -12,3 +12,4 @@ export { CardIcon } from './cartIcon';
 export { CartItem } from './cartItem';
 export { CartDropDown } from './cartDropDown';
 export { CheckoutItem } from './checkoutItem';
+export { CheckoutButton } from './checkoutButton';
