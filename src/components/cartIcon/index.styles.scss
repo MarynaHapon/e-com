@@ -6,16 +6,23 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  &Bag {
+    width: 26px;
+    height: 32px;
+  }
+
+  &Count {
+    position: absolute;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 900;
+    bottom: 13px;
+    color: #413382;
+
+    width: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
-.cartIconBag {
-  width: 24px;
-  height: 24px;
-}
-
-.cartIconCount {
-  position: absolute;
-  font-size: 10px;
-  font-weight: bold;
-  bottom: 12px;
-}

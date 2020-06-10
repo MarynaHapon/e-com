@@ -1,19 +1,39 @@
 .header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   height: 70px;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 25px;
-
-  .logoContainer {
-    height: 100%;
-    width: 70px;
-  }
+  margin: 0 0 30px;
+  background: #E5F7FF;
+  padding: 0 60px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
 
   .logo {
-    width: 100%;
-    height: auto;
+    &Container {
+      display: flex;
+      align-items: center;
+    }
+
+    &Image {
+      margin-left: 5px;
+      width: 25px;
+      height: auto;
+
+      path {
+        stroke: #413382;
+        fill: #EBE5F6;
+      }
+    }
+
+    &Text {
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 33px;
+      color: #473889;
+    }
   }
 
   .nav {
@@ -23,10 +43,20 @@
     align-items: center;
     justify-content: flex-end;
 
-  }
+    &Link {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 15px;
+      cursor: pointer;
+      color: #413382;
+      font-size: 16px;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
 
-  .navLink {
-    padding: 10px 15px;
-    cursor: pointer;
+      &.selected {
+        border-bottom: 2px solid #413382;
+      }
+    }
   }
 }

@@ -3,28 +3,37 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 // Components
-import { Button } from '../../components';
+import { ButtonIcon } from '../../components';
 
 // Other
 import './index.styles.scss';
 import { addItemToCart } from '../../redux/cart';
+import { ReactComponent as IconPlus } from '../../assets/images/plus.svg';
 
 export const CollectionItem = (item) => {
   const { id, name, price, imageUrl } = item;
   const dispatch = useDispatch();
   const onClickHandler = () => dispatch(addItemToCart(item));
 
+  const description = 'description';
+
   return (
     <div className='collectionItem'>
-      <div className='image' style={{ backgroundImage: `url(${imageUrl})` }} />
-
-      <div className='footer'>
-        <span className='name'>{name}</span>
-        <span className='price'>{price}</span>
+      <div className='body'>
+        <div className='bodyImage' style={{ backgroundImage: `url(${imageUrl})` }} />
       </div>
 
-      <div className='overlay'>
-        <Button variant='tertiary' onClick={onClickHandler}>Add to Cart</Button>
+      <div className='footer'>
+        <p className='footerName' title={name}>{name}</p>
+        <p className='footerDescription'>{description}</p>
+        <p className='footerPrice'>${price}</p>
+        <ButtonIcon
+          type='button'
+          variant='primary'
+          className='footerButton'
+          onClick={onClickHandler}
+          icon={<IconPlus />}
+        />
       </div>
     </div>
   )

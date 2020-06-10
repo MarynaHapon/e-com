@@ -1,0 +1,32 @@
+.buttonIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 61px;
+  height: 61px;
+  cursor: pointer;
+  border-radius: 100%;
+  border: none;
+  transition: box-shadow .3s ease-in;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:active {
+    box-shadow: 0 10px 15px -1px rgba(0, 0, 0, 0.3)
+  }
+
+  &.primary {
+    background-color: #574A97;
+    color: #ffffff;
+  }
+
+  &.secondary {
+    background-color: #4285f4;
+    color: #ffffff;
+    // border: 1px solid #4285f4;
+  }
+}

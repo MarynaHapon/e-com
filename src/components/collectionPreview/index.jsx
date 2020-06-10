@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components
-import { CollectionItem } from '../../components';
+import { CollectionItem, Headline } from '../../components';
 
 // Other
 import './index.styles.scss';
@@ -16,10 +16,8 @@ export const CollectionPreview = ({ title, items }) => {
 
   return (
     <section className='collectionPreview'>
-      <h1 className='title'>{title.toUpperCase()}</h1>
-      <div className='preview'>
-        {itemsJSX}
-      </div>
+      <Headline>{title}</Headline>
+      <div className='preview'>{itemsJSX}</div>
     </section>
   );
 };

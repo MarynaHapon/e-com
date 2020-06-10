@@ -1,6 +1,6 @@
 // Core
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 // Components
@@ -24,9 +24,9 @@ export const Header = () => {
       Sign Out
     </div>
   ) : (
-    <Link to='/auth'>
+    <NavLink to='/auth' className='navLink' activeClassName='selected'>
       Sign In
-    </Link>
+    </NavLink>
   );
 
   const cartDropDownJSX = isVisible ? <CartDropDown /> : null;
@@ -34,12 +34,13 @@ export const Header = () => {
   return (
     <header className='header'>
       <Link to='/' className='logoContainer'>
-        <Logo className='logo' />
+        <span className='logoText'>E-com</span>
+        <Logo className='logoImage' />
       </Link>
 
       <nav className='nav'>
-        <Link to='shop' className='navLink'>Shop</Link>
-        <Link to='shop' className='navLink'>Contact</Link>
+        <NavLink to='/shop' replace className='navLink' activeClassName='selected'>Shop</NavLink>
+        {/*<NavLink to='/shop' className='navLink' activeClassName='selected'>Contact</NavLink>*/}
         {authActionJSX}
         <CardIcon />
       </nav>

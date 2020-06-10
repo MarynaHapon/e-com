@@ -5,7 +5,7 @@ import React from 'react';
 import { useCollectionData } from '../../hook/useCollectionData';
 
 // Components
-import { CollectionItem } from '../../components/index'
+import { CollectionItem, Headline } from '../../components/index'
 
 // Other
 import './index.styles.scss';
@@ -20,7 +20,7 @@ export const CollectionPage = ({ match }) => {
 
   return (
     <section className='collectionPage'>
-      <h2 className='title'>{title}</h2>
+      <Headline>{title}</Headline>
       <div className='items'>{itemsJSX}</div>
     </section>
   )

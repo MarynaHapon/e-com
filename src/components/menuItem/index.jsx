@@ -12,10 +12,13 @@ export const MenuItem = ({ title, subtitle, imageUrl, size, history, linkUrl }) 
 
   return (
     <div className={`menuItem ${size}`} onClick={clickHandler}>
-      <div className='backgroundImage' style={{ backgroundImage: `url(${imageUrl})` }} />
+      <div className='icon'>
+        <div className='iconImage' style={{ backgroundImage: `url(${imageUrl})` }} />
+      </div>
+
       <div className='content'>
-        <h1 className='title'>{title.toUpperCase()}</h1>
-        <span className='subtitle'>{subtitle.toUpperCase()}</span>
+        <h1 className='title'>{title}</h1>
+        <span className='subtitle'>{subtitle}</span>
       </div>
     </div>
   )

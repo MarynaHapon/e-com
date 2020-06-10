@@ -7,12 +7,13 @@
   padding: 0 35px 0 35px;
   font-size: 15px;
   text-transform: uppercase;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: bolder;
   border: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  white-space: nowrap;
 
   &.primary {
     background-color: #000000;
