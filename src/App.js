@@ -14,7 +14,7 @@ import {
 } from './pages';
 
 // Components
-import { Header } from './components/header';
+import { Header, Footer } from './components';
 
 // Other
 import './App.css';
@@ -32,6 +32,7 @@ function App() {
         <Route exact path='/auth' render={authRenderHandler} />
         <Route exact path='/checkout' component={CheckoutPage} />
       </Switch>
+      <Footer />
     </>
   );
 }
