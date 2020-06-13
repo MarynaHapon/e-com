@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components
-import { SignIn, SignUp } from '../../components';
+import { SignIn, SignUp, Card, Shape } from '../../components';
 
 // Other
 import './index.styles.scss';
@@ -10,8 +10,14 @@ import './index.styles.scss';
 export const AuthPage = () => {
   return (
     <div className='authPage'>
-      <SignIn />
-      <SignUp />
+      <Shape type='primary' width={70} height={90} top={5} left={-15} />
+      <Shape type='secondary' width={62} height={80} bottom={-35} right={-15} />
+      <Card>
+        <SignIn />
+      </Card>
+      <Card>
+        <SignUp />
+      </Card>
     </div>
   );
 };

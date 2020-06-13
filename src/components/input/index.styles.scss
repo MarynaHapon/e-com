@@ -26,6 +26,8 @@ $main-color: black;
 
     &:focus {
       outline: none;
+      color: $main-color;
+      border-bottom: 1px solid $main-color;
     }
 
     &:focus ~ .inputLabel {

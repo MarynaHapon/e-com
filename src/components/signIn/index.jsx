@@ -60,7 +60,7 @@ export const SignIn = () => {
         {errorMessageJSX}
       </p>
 
-      <form onSubmit={onSubmitHandler}>
+      <form onSubmit={onSubmitHandler} className='form'>
         <Input
           name='email'
           type='email'

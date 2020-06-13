@@ -1,16 +1,18 @@
 .cart {
   &DropDown {
     position: absolute;
-    width: 240px;
+    width: 380px;
     height: 340px;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    border: 1px solid #000000;
+    border: 1px solid #EBE5F6;
     background-color: #ffffff;
     top: 80px;
-    right: 0;
+    right: 60px;
     z-index: 5;
+    border-radius: 25px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
   }
 
   &Items {
@@ -31,6 +33,7 @@
     justify-content: center;
     height: 100%;
     font-size: 18px;
+    font-weight: 500;
   }
 }
 
