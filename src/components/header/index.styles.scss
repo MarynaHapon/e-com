@@ -10,31 +10,6 @@
   padding: 0 60px;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
 
-  .logo {
-    &Container {
-      display: flex;
-      align-items: center;
-    }
-
-    &Image {
-      margin-left: 5px;
-      width: 25px;
-      height: auto;
-
-      path {
-        stroke: #413382;
-        fill: #EBE5F6;
-      }
-    }
-
-    &Text {
-      font-weight: bold;
-      font-size: 20px;
-      line-height: 33px;
-      color: #473889;
-    }
-  }
-
   .nav {
     width: 50%;
     height: 100%;

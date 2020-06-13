@@ -4,11 +4,10 @@ import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 // Components
-import { CardIcon, CartDropDown } from '../../components';
+import { CardIcon, CartDropDown, Logo } from '../../components';
 
 // Other
 import './index.styles.scss';
-import { ReactComponent as Logo } from '../../assets/images/logo.svg';
 import { auth } from '../../firebase/utils';
 import { userSelector } from '../../redux/user';
 import { cartSelector } from '../../redux/cart';
@@ -33,10 +32,7 @@ export const Header = () => {
 
   return (
     <header className='header'>
-      <Link to='/' className='logoContainer'>
-        <span className='logoText'>E-com</span>
-        <Logo className='logoImage' />
-      </Link>
+      <Logo />
 
       <nav className='nav'>
         <NavLink to='/shop' replace className='navLink' activeClassName='selected'>Shop</NavLink>
@@ -44,6 +40,7 @@ export const Header = () => {
         {authActionJSX}
         <CardIcon />
       </nav>
+
       {cartDropDownJSX}
     </header>
   )
