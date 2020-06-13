@@ -19,18 +19,18 @@ export const CollectionItem = (item) => {
 
   return (
     <div className='collectionItem'>
-      <div className='body'>
-        <div className='bodyImage' style={{ backgroundImage: `url(${imageUrl})` }} />
+      <div className='collectionItemBody'>
+        <div className='collectionItemImage' style={{ backgroundImage: `url(${imageUrl})` }} />
       </div>
 
-      <div className='footer'>
-        <p className='footerName' title={name}>{name}</p>
-        <p className='footerDescription'>{description}</p>
-        <p className='footerPrice'>${price}</p>
+      <div className='collectionItemFooter'>
+        <p className='collectionItemName' title={name}>{name}</p>
+        <p className='collectionItemDescription'>{description}</p>
+        <p className='collectionItemPrice'>${price}</p>
         <ButtonIcon
           type='button'
           variant='primary'
-          className='footerButton'
+          className='collectionItemButton'
           onClick={onClickHandler}
           icon={<IconPlus />}
         />

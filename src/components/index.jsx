@@ -1,4 +1,6 @@
+export { Logo } from './logo';
 export { Header } from './header';
+export { Footer } from './footer';
 export { Directory } from './directory';
 export { MenuItem } from './menuItem';
 export { CollectionItem } from './collectionItem';
