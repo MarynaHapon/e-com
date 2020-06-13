@@ -7,9 +7,10 @@
   justify-content: flex-start;
   margin: 0 7.5px 15px;
   overflow: hidden;
-  background: #FFFFFF;
+  background: rgba(255, 255, 255, .7);
   border: 1px solid #E7E7E7;
   border-radius: 40px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
 
   &:hover {
     cursor: pointer;
@@ -78,5 +79,10 @@
 
   &.large {
     height: 360px;
+
+    .icon {
+      width: 240px;
+      height: 240px;
+    }
   }
 }

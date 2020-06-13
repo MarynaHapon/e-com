@@ -2,18 +2,21 @@ export const data = [
   {
     title: 'Hats',
     imageUrl: 'https://i.ibb.co/ypkgK0X/blue-beanie.png',
+    size: 'small',
     id: 1,
     linkUrl: '/shop/hats',
   },
   {
     title: 'Sneakers',
     imageUrl: 'https://i.ibb.co/0s3pdnc/adidas-nmd.png',
+    size: 'small',
     id: 2,
     linkUrl: '/shop/sneakers'
   },
   {
     title: 'Jackets',
     imageUrl: 'https://i.ibb.co/mJS6vz0/blue-jean-jacket.png',
+    size: 'small',
     id: 3,
     linkUrl: '/shop/jackets'
   },
