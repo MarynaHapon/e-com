@@ -1,0 +1,41 @@
+$primaryMain: #E5F7FF;
+$primarySub: #E7DDF2;
+
+$secondaryMain: #776FC3;
+$secondarySub: #E7DDF2;
+
+$tertiaryMain: #574A97;
+$tertiarySub: #E7DDF2;
+
+.shape {
+  position: absolute;
+  display: inline-block;
+  border-radius: 30% 70% 66% 34% / 30% 30% 70% 70%;
+  // animation: fluid 10s ease-in-out;
+  z-index: -1;
+
+  &.primary {
+    background: $primaryMain;
+    background-image: linear-gradient(0deg, $primaryMain 0%, $primarySub 100%);
+  }
+
+  &.secondary {
+    background: $secondaryMain;
+    background-image: linear-gradient(45deg, $secondaryMain 0%, $secondarySub 100%);
+  }
+
+  &.tertiary {
+    background: $tertiaryMain;
+    background-image: linear-gradient(50deg, $tertiaryMain 0%, $tertiarySub 100%);
+  }
+
+  @keyframes fluid {
+    0%, 99% {
+      border-radius: 30% 70% 66% 34% / 30% 30% 70% 70%;
+    }
+    50% {
+      border-radius: 58% 42% 42% 58% / 50% 64% 36% 50%;
+      transform: rotate(-20deg);
+    }
+  }
+}
