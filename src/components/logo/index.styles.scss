@@ -1,0 +1,24 @@
+.logo {
+  &Container {
+    display: flex;
+    align-items: center;
+  }
+
+  &Image {
+    margin-left: 5px;
+    width: 25px;
+    height: auto;
+
+    path {
+      stroke: #413382;
+      fill: #EBE5F6;
+    }
+  }
+
+  &Text {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 33px;
+    color: #473889;
+  }
+}
