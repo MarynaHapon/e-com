@@ -11,53 +11,47 @@ import { cartSelector } from '../../redux/cart';
 
 export const Checkout = () => {
   const { cartItems } = useSelector(cartSelector);
-
-  const total = cartItems.reduce((acc, cardItem) => acc + cardItem.price, 0);
+  const total = cartItems.reduce((acc, cardItem) => (acc + (cardItem.price * cardItem.quantity)), 0);
 
   const cartItemsJSX = cartItems.map((cartItem) => (
-    <CheckoutItem
-      key={cartItem.id}
-      cartItem={cartItem}
-    />
+    <CheckoutItem key={cartItem.id} cartItem={cartItem} />
   ));
 
   return (
-    <div className='checkoutPage'>
-      <header className='header'>
-        <div className='headerBlock'>
+    <div className='checkout'>
+      <header className='checkoutHeader'>
+        <div className='checkoutHeaderBlock'>
           <span>Product</span>
         </div>
-
-        <div className='headerBlock'>
+        <div className='checkoutHeaderBlock'>
           <span>Description</span>
         </div>
-
-        <div className='headerBlock'>
+        <div className='checkoutHeaderBlock'>
           <span>Quantity</span>
         </div>
-
-        <div className='headerBlock'>
+        <div className='checkoutHeaderBlock'>
           <span>Price</span>
         </div>
-
-        <div className='headerBlock'>
+        <div className='checkoutHeaderBlock'>
           <span>Remove</span>
         </div>
       </header>
 
-      <div className='body'>
+      <div className='checkoutBody'>
         {cartItemsJSX}
-        <CheckoutButton price={total} />
       </div>
 
-      <div className='testWarning'>
-        *Please use the following test credit card for payments*
-        <br />
-        4242 4242 4242 4242 - Exp 01/22 - CVV: 123
-      </div>
-
-      <div className='total'>
-        <span>TOTAL: ${total}</span>
+      <div className='checkoutFooter'>
+        <div className='checkoutFooterBlock'>
+          <div className='message isError'>
+            *Please use the following test credit card for payments*
+            <br />
+            4242 4242 4242 4242 - Exp 01/22 - CVV: 123
+          </div>
+        </div>
+        <div className='checkoutFooterBlock'>
+          <CheckoutButton price={total} />
+        </div>
       </div>
     </div>
   );

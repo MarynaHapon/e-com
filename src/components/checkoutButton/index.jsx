@@ -2,6 +2,9 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 
+// Components
+import { Button } from '../../components';
+
 // Other
 import './index.styles.scss';
 
@@ -17,16 +20,17 @@ export const CheckoutButton = ({ price }) => {
     <div className='checkoutButton'>
       <StripeCheckout
         label='Pay Now'
-        name='SHOP Ltd.'
+        name='E-com Ltd.'
         billingAddress='billing address'
         shippingAddress='shipping address'
-        image='https://sendeyo.com/up/d/f3eb2117da'
         description={`Your total is $${price}`}
         amount={priceForStripe}
         panelLabel='Pay Now'
         token={onToken}
         stripeKey={publishableKey}
-      />
+      >
+        <Button type='button' variant='primary'>Pay Now ${price}</Button>
+      </StripeCheckout>
     </div>
   )
 };

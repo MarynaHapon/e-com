@@ -24,8 +24,12 @@
   }
 
   &.secondary {
-    background-color: #4285f4;
-    color: #ffffff;
-    // border: 1px solid #4285f4;
+    background-color: #FFFFFF;;
+    color: #413382;
+  }
+
+  &.tertiary {
+    background-color: #E7DDF2;
+    color: #413382;
   }
 }

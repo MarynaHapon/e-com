@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 // Component
-import { Button } from '../../components';
+import { ButtonIcon } from '../../components';
 
 // Other
 import './index.styles.scss';
@@ -36,16 +36,14 @@ export const CheckoutItem = ({ cartItem }) => {
         <span className='value'>{quantity}</span>
         <span className='arrow' onClick={increaseQuantity}>&#10095;</span>
       </span>
-      <span className='price'>{price}</span>
-      <div className='removeButton'>
-        <Button
-          type='button'
-          variant='primary'
-          onClick={removeItem}
-        >
-          &#10005;
-        </Button>
-      </div>
+      <span className='price'>${price}</span>
+      <ButtonIcon
+        type='button'
+        variant='tertiary'
+        onClick={removeItem}
+        className='removeButton'
+        icon={<b>&#10005;</b>}
+      />
     </div>
   );
 };
