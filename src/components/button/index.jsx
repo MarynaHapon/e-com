@@ -2,16 +2,15 @@
 import React from 'react';
 
 // Other
-import './index.styles.scss';
+// import './index.styles.scss';
+import { ButtonContainer } from './index.styles';
 
-export const Button = ({ type, variant, onClick, children }) => {
+export const Button = (props) => {
+  const { type, variant, onClick, children } = props;
+
   return (
-    <button
-      type={type}
-      className={`button ${variant || ''}`}
-      onClick={onClick}
-    >
+    <ButtonContainer type={type} onClick={onClick} variant={variant}>
       {children}
-    </button>
+    </ButtonContainer>
   )
 };

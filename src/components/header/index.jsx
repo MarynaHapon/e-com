@@ -1,13 +1,13 @@
 // Core
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 // Components
 import { CardIcon, CartDropDown, Logo } from '../../components';
 
 // Other
-import './index.styles.scss';
+// import './index.styles.scss';
+import { Container, Navigation, NavigationLink } from './index.styles';
 import { auth } from '../../firebase/utils';
 import { userSelector } from '../../redux/user';
 import { cartSelector } from '../../redux/cart';
@@ -18,30 +18,27 @@ export const Header = () => {
 
   const signOut = () => auth.signOut();
 
+  const activeLinkCX = { borderBottom: '2px solid #413382' };
+
   const authActionJSX = user ? (
-    <div className='navLink' onClick={signOut}>
-      Sign Out
-    </div>
+    <NavigationLink as='div' onClick={signOut}>Sign Out</NavigationLink>
   ) : (
-    <NavLink to='/auth' className='navLink' activeClassName='selected'>
-      Sign In
-    </NavLink>
+    <NavigationLink activeStyle={activeLinkCX} to='/auth'>Sign In</NavigationLink>
   );
 
   const cartDropDownJSX = isVisible ? <CartDropDown /> : null;
 
   return (
-    <header className='header'>
+    <Container>
       <Logo />
 
-      <nav className='nav'>
-        <NavLink to='/shop' replace className='navLink' activeClassName='selected'>Shop</NavLink>
-        {/*<NavLink to='/shop' className='navLink' activeClassName='selected'>Contact</NavLink>*/}
+      <Navigation>
+        <NavigationLink activeStyle={activeLinkCX} to='/shop'>Shop</NavigationLink>
         {authActionJSX}
         <CardIcon />
-      </nav>
+      </Navigation>
 
       {cartDropDownJSX}
-    </header>
+    </Container>
   )
 };
