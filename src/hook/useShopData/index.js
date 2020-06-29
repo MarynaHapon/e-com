@@ -8,9 +8,9 @@ export const useShopData = () => {
   const { collections } = useSelector(shopSelector);
 
   return {
-    shopData: Object
+    shopData: collections ? Object
       .keys(collections)
-      .map(key => collections[key]),
+      .map(key => collections[key]) : [],
   };
 };
 

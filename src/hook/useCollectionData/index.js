@@ -6,7 +6,7 @@ import { shopSelector } from '../../redux/shop';
 
 export const useCollectionData = (collectionUrl) => {
   const { collections } = useSelector(shopSelector);
-  const collection = collections[collectionUrl];
+  const collection = collections ? collections[collectionUrl] : null;
 
   return {
     collection,

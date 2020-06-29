@@ -5,22 +5,25 @@ import React from 'react';
 import { useCollectionData } from '../../hook/useCollectionData';
 
 // Components
-import { CollectionItem, Headline } from '../../components/index'
+import { CollectionItem, Headline } from '../../components'
 
 // Other
 import './index.styles.scss';
 
 export const CollectionPage = ({ match }) => {
   const { collection } = useCollectionData(match.params.collectionId);
-  const { title, items } = collection;
 
-  const itemsJSX = items.map(({ id, name, price, imageUrl }) => (
+  const itemsJSX = collection && collection.items && collection.items.map(({ id, name, price, imageUrl }) => (
     <CollectionItem key={id} id={id} name={name} price={price} imageUrl={imageUrl} />
   ));
 
+  const titleJSX = collection && collection.title && (
+    <Headline>{collection.title}</Headline>
+  );
+
   return (
     <section className='collectionPage'>
-      <Headline>{title}</Headline>
+      {titleJSX}
       <div className='items'>{itemsJSX}</div>
     </section>
   )
