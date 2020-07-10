@@ -6,4 +6,9 @@ export {
   FETCH_COLLECTIONS_SUCCESS,
   FETCH_COLLECTIONS_FAILURE,
 } from './types';
-export { fetchCollectionsStartAsync } from './actions';
+export {
+  fetchCollectionsStartAsync,
+  fetchCollectionsStart,
+  fetchCollectionsFailure,
+  fetchCollectionsSuccess,
+} from './actions';
