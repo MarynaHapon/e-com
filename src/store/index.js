@@ -7,7 +7,8 @@ import { persistStore } from 'redux-persist';
 
 // Other
 import { persistRoodReducer } from '../redux/rootReducer';
-import { fetchCollectionAsync } from '../redux/shop/sagas';
+
+import { rootSaga } from '../redux/rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 const middlewares = [ sagaMiddleware ];
@@ -20,6 +21,6 @@ export const store = createStore(persistRoodReducer, applyMiddleware(
   ...middlewares
 ));
 
-sagaMiddleware.run(fetchCollectionAsync);
+sagaMiddleware.run(rootSaga);
 
 export const persistor = persistStore(store);

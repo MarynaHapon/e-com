@@ -1,5 +1,6 @@
 // Core
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 // Components
 import { Input, Button } from '../../components';
@@ -7,8 +8,11 @@ import { Input, Button } from '../../components';
 // Other
 import './index.styles.scss';
 import { auth, signInWithGoogle } from '../../firebase/utils';
+import { googleSignInStart, emailSignInStart } from '../../redux/user';
 
 export const SignIn = () => {
+  const dispatch = useDispatch();
+
   const [ data, setData ] = useState({
     email: '',
     password: '',
@@ -25,22 +29,14 @@ export const SignIn = () => {
     })
   };
 
-  const onSubmitHandler = async (e) => {
+  const onEmailSignIn = async (e) => {
     e.preventDefault();
-
     const { email, password } = data;
+    dispatch(emailSignInStart(email, password));
+  };
 
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-      setData({
-        email: '',
-        password: '',
-      });
-      setErrorMessage('');
-      setSuccessMessage('Success');
-    } catch (e) {
-      setErrorMessage(e.message);
-    }
+  const onGoogleSignIn = () => {
+    dispatch(googleSignInStart());
   };
 
   const errorMessageJSX = errorMessage && (
@@ -60,7 +56,7 @@ export const SignIn = () => {
         {errorMessageJSX}
       </p>
 
-      <form onSubmit={onSubmitHandler} className='form'>
+      <form onSubmit={onEmailSignIn} className='form'>
         <Input
           name='email'
           type='email'
@@ -81,7 +77,7 @@ export const SignIn = () => {
 
         <div className='buttons'>
           <Button type='submit' variant='primary'>Sign In</Button>
-          <Button type='button' variant='secondary' onClick={signInWithGoogle}>Sign In with Google</Button>
+          <Button type='button' variant='secondary' onClick={onGoogleSignIn}>Sign In with Google</Button>
         </div>
       </form>
     </div>

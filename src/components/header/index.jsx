@@ -9,11 +9,11 @@ import { CardIcon, CartDropDown, Logo } from '../../components';
 // import './index.styles.scss';
 import { Container, Navigation, NavigationLink } from './index.styles';
 import { auth } from '../../firebase/utils';
-import { userSelector } from '../../redux/user';
+import { selector } from '../../redux/user';
 import { cartSelector } from '../../redux/cart';
 
 export const Header = () => {
-  const { user } = useSelector(userSelector);
+  const { user } = useSelector(selector);
   const { isVisible } = useSelector(cartSelector);
 
   const signOut = () => auth.signOut();
