@@ -4,6 +4,7 @@ import {
   CART_ADD_ITEM,
   CART_REMOVE_ITEM,
   CART_CLEAR_ITEM,
+  CART_CLEAR,
 } from '../cart';
 
 export const toggleCartVisibility = () => ({
@@ -23,4 +24,8 @@ export const removeItemFromCart = (item) => ({
 export const clearItemFromCart = (item) => ({
   type: CART_CLEAR_ITEM,
   payload: item,
+});
+
+export const clearCart = () => ({
+  type: CART_CLEAR,
 });

@@ -9,6 +9,8 @@ import {
   USER_SIGN_OUT_START,
   signInSuccess,
   signInFailure,
+  signOutSuccess,
+  signOutFailure,
 } from '../user';
 import {
   auth,
@@ -70,9 +72,9 @@ export function* onCheckUserSession() {
 export function* signOut() {
   try {
     yield auth.signOut();
-    yield put(signInSuccess());
+    yield put(signOutSuccess());
   } catch (e) {
-    yield put(signInFailure(e));
+    yield put(signOutFailure(e));
   }
 }
 

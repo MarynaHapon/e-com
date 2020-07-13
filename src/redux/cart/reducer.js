@@ -4,6 +4,7 @@ import {
   CART_ADD_ITEM,
   CART_REMOVE_ITEM,
   CART_CLEAR_ITEM,
+  CART_CLEAR,
 } from '../cart';
 import {
   increaseCartItemQuantity,
@@ -37,6 +38,12 @@ export const cartReducer = (state = initialState, action) => {
         ...state,
         cartItems: state.cartItems.filter((cartItem) => cartItem !== action.payload)
       };
+    case CART_CLEAR:
+      return {
+        ...state,
+        cartItems: [],
+      };
+
     default:
       return state;
   }
