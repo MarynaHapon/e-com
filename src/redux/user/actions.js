@@ -6,6 +6,9 @@ import {
   USER_SIGN_IN_SUCCESS,
   USER_SIGN_IN_FAILURE,
   USER_CHECK_SESSION,
+  USER_SIGN_OUT_START,
+  USER_SIGN_OUT_SUCCESS,
+  USER_SIGN_OUT_FAILURE,
 } from '../user';
 
 export const setUser = (user) => ({
@@ -34,4 +37,17 @@ export const signInFailure = (error) => ({
 
 export const checkUserSession = () => ({
   type: USER_CHECK_SESSION,
+});
+
+export const signOutStart = () => ({
+  type: USER_SIGN_OUT_START,
+});
+
+export const signOutSuccess = () => ({
+  type: USER_SIGN_OUT_SUCCESS,
+});
+
+export const signOutFailure = (error) => ({
+  type: USER_SIGN_OUT_FAILURE,
+  payload: error,
 });

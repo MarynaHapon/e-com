@@ -3,6 +3,8 @@ import {
   USER_SET,
   USER_SIGN_IN_SUCCESS,
   USER_SIGN_IN_FAILURE,
+  USER_SIGN_OUT_SUCCESS,
+  USER_SIGN_OUT_FAILURE,
 } from '../user';
 
 const initialState = {
@@ -23,7 +25,14 @@ export const reducer = (state = initialState, action) => {
         user: action.payload,
         error: null,
       };
+    case USER_SIGN_OUT_SUCCESS:
+      return {
+        ...state,
+        user: null,
+        error: null,
+      };
     case USER_SIGN_IN_FAILURE:
+    case USER_SIGN_OUT_FAILURE:
       return {
         ...state,
         error: action.payload,

@@ -27,8 +27,6 @@ function App() {
 
   const dispatch = useDispatch();
 
-  dispatch(checkUserSession());
-
   useEffect(() => {
     dispatch(checkUserSession());
   }, []);

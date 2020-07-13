@@ -6,6 +6,7 @@ import {
   USER_GOOGLE_SIGN_IN_START,
   USER_EMAIL_SIGN_IN_START,
   USER_CHECK_SESSION,
+  USER_SIGN_OUT_START,
   signInSuccess,
   signInFailure,
 } from '../user';
@@ -66,10 +67,24 @@ export function* onCheckUserSession() {
   yield takeLatest(USER_CHECK_SESSION, isUserAuthenticated)
 }
 
+export function* signOut() {
+  try {
+    yield auth.signOut();
+    yield put(signInSuccess());
+  } catch (e) {
+    yield put(signInFailure(e));
+  }
+}
+
+export function* onSignOutStart() {
+  yield takeLatest(USER_SIGN_OUT_START, signOut);
+}
+
 export function* userSagas() {
   yield all([
     call(onGoogleSignInStart),
     call(onEmailSignInStart),
     call(onCheckUserSession),
+    call(onSignOutStart),
   ])
 }

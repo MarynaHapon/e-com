@@ -8,6 +8,9 @@ export {
   signInSuccess,
   signInFailure,
   checkUserSession,
+  signOutStart,
+  signOutSuccess,
+  signOutFailure,
 } from './actions';
 export {
   USER_SET,
@@ -16,5 +19,8 @@ export {
   USER_SIGN_IN_SUCCESS,
   USER_SIGN_IN_FAILURE,
   USER_CHECK_SESSION,
+  USER_SIGN_OUT_START,
+  USER_SIGN_OUT_SUCCESS,
+  USER_SIGN_OUT_FAILURE,
 } from './types';
 
