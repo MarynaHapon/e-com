@@ -7,6 +7,7 @@ export {
   emailSignInStart,
   signInSuccess,
   signInFailure,
+  checkUserSession,
 } from './actions';
 export {
   USER_SET,
@@ -14,5 +15,6 @@ export {
   USER_EMAIL_SIGN_IN_START,
   USER_SIGN_IN_SUCCESS,
   USER_SIGN_IN_FAILURE,
+  USER_CHECK_SESSION,
 } from './types';
 
