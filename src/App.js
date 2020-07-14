@@ -1,7 +1,6 @@
 // Core
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
 // Hooks
 import { useUserData } from './hook/useUserData';
@@ -14,22 +13,20 @@ import {
   CheckoutPage,
 } from './pages';
 
+// Hooks
+import { useCheckUserSession } from './hook/useCheckUserSession';
+
 // Components
 import { Header, Footer } from './components';
 
 // Other
 import './App.css';
-import { checkUserSession } from './redux/user';
 
 function App() {
+  useCheckUserSession();
+
   const { user } = useUserData();
   const authRenderHandler = () => user ? <Redirect to='/' /> : <AuthPage />;
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(checkUserSession());
-  }, []);
 
   return (
     <>
