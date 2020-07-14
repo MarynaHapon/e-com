@@ -1,14 +1,16 @@
 // Core
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 // Component
 import { Button, Input } from '../../components';
 
 // Other
 import './index,styles.scss';
-import { auth, createUserProfileDocument } from '../../firebase/utils';
+import { signUpStart } from '../../redux/user';
 
 export const SignUp = () => {
+  const dispatch = useDispatch();
   const [ data, setData ] = useState({
     displayName: '',
     email: '',
@@ -28,25 +30,7 @@ export const SignUp = () => {
       return;
     }
 
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password,
-      );
-
-      await createUserProfileDocument(user, { displayName });
-
-      setData({
-        displayName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-      });
-      setErrorMessage('');
-      setSuccessMessage('Success');
-    } catch (e) {
-      setErrorMessage(e.message);
-    }
+    dispatch(signUpStart({ email, password, displayName }));
   };
 
   const onChangeHandler = (e) => {

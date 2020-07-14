@@ -9,6 +9,9 @@ import {
   USER_SIGN_OUT_START,
   USER_SIGN_OUT_SUCCESS,
   USER_SIGN_OUT_FAILURE,
+  USER_SIGN_UP_START,
+  USER_SIGN_UP_SUCCESS,
+  USER_SIGN_UP_FAILURE,
 } from '../user';
 
 export const setUser = (user) => ({
@@ -49,5 +52,20 @@ export const signOutSuccess = () => ({
 
 export const signOutFailure = (error) => ({
   type: USER_SIGN_OUT_FAILURE,
+  payload: error,
+});
+
+export const signUpStart = (userCredentials) => ({
+  type: USER_SIGN_UP_START,
+  payload: userCredentials,
+});
+
+export const signUpSuccess = ({ user, additionalData }) => ({
+  type: USER_SIGN_UP_SUCCESS,
+  payload: { user, additionalData },
+});
+
+export const signUpFailure = (error) => ({
+  type: USER_SIGN_UP_FAILURE,
   payload: error,
 });

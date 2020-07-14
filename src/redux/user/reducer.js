@@ -5,6 +5,8 @@ import {
   USER_SIGN_IN_FAILURE,
   USER_SIGN_OUT_SUCCESS,
   USER_SIGN_OUT_FAILURE,
+  USER_SIGN_UP_SUCCESS,
+  USER_SIGN_UP_FAILURE,
 } from '../user';
 
 const initialState = {
@@ -33,6 +35,7 @@ export const reducer = (state = initialState, action) => {
       };
     case USER_SIGN_IN_FAILURE:
     case USER_SIGN_OUT_FAILURE:
+    case USER_SIGN_UP_FAILURE:
       return {
         ...state,
         error: action.payload,
