@@ -4,9 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const isProduction = process.env === 'production';
-
-if (!isProduction) require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -18,12 +16,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 
-if (isProduction) {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
 
-  app.get('*', (req, res) => {
+  app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  })
+  });
 }
 
 app.listen(port, (error) => {
@@ -41,8 +39,6 @@ app.post('/payment', (req, res) => {
   };
 
   stripe.charges.create(body, (stripeErr, stripeRes) => {
-    console.log(stripeErr, stripeRes);
-
     if (stripeErr) {
       res.status(500).send({ error: stripeErr });
     } else {
