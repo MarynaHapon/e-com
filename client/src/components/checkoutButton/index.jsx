@@ -1,6 +1,7 @@
 // Core
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios';
 
 // Components
 import { Button } from '../../components';
@@ -13,7 +14,24 @@ export const CheckoutButton = ({ price }) => {
   const publishableKey = 'pk_test_bXOWAWjVuHgxelvNVfWN9LSE00Ozt0cTJu';
 
   const onToken = (token) => {
+
     console.log(token);
+    axios({
+      url: 'payment',
+      method: 'post',
+      data: {
+        amount: priceForStripe,
+        token,
+      }
+    })
+      .then((response) => {
+        alert('Payment successful');
+        console.log(`Payment Success: ${response}`);
+      })
+      .catch((error) => {
+        alert('There was an issue with your payment. Please sure you use provided credit cart');
+        console.log(`Payment Error: ${error}`);
+      });
   };
 
   return (
@@ -21,8 +39,8 @@ export const CheckoutButton = ({ price }) => {
       <StripeCheckout
         label='Pay Now'
         name='E-com Ltd.'
-        billingAddress='billing address'
-        shippingAddress='shipping address'
+        // billingAddress={true}
+        // shippingAddress={true}
         description={`Your total is $${price}`}
         amount={priceForStripe}
         panelLabel='Pay Now'
