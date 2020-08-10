@@ -20,3 +20,4 @@ export { CheckoutButton } from './checkoutButton';
 export { Checkout } from './checkout';
 export { Headline } from './headline';
 export { Shape } from './shape';
+export { Spinner } from './spinner';

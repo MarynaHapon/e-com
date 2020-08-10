@@ -1,9 +1,6 @@
 // Core
-import React from 'react';
+import React, { lazy } from 'react';
 import { Route } from 'react-router-dom';
-
-// Pages
-import { CollectionPage } from '../../pages/collection';
 
 // Hooks
 import { useCollectionFetch } from '../../hook/useCollectionsFetch';
@@ -15,10 +12,11 @@ import { CollectionOverview, Shape } from '../../components';
 // Other
 import './index.styles.scss';
 
+const CollectionPage = lazy(() => import('../../pages/collection'));
 const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 const CollectionOverviewWithSpinner = WithSpinner(CollectionOverview);
 
-export const ShopPage = ({ match: { path } }) => {
+const ShopPage = ({ match: { path } }) => {
   const { isFetching, isLoaded } = useCollectionFetch();
 
   return (
@@ -30,3 +28,5 @@ export const ShopPage = ({ match: { path } }) => {
     </div>
   );
 };
+
+export default ShopPage;

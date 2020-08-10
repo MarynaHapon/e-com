@@ -7,7 +7,7 @@ import { SignIn, SignUp, Card, Shape } from '../../components';
 // Other
 import './index.styles.scss';
 
-export const AuthPage = () => {
+const AuthPage = () => {
   return (
     <div className='authPage'>
       <Shape type='primary' width={70} height={90} top={5} left={-15} />
@@ -21,3 +21,5 @@ export const AuthPage = () => {
     </div>
   );
 };
+
+export default AuthPage;

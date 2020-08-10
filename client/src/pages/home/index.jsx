@@ -8,7 +8,7 @@ import { Directory, Shape } from '../../components';
 import './index.styles.scss';
 import { Container } from './index.styles';
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
     <Container>
       <Shape type='primary' width={65} height={100} top={-5} left={-10} />
@@ -17,3 +17,5 @@ export const HomePage = () => {
     </Container>
   );
 };
+
+export default HomePage;

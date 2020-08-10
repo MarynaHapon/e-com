@@ -10,7 +10,7 @@ import { CollectionItem, Headline } from '../../components'
 // Other
 import './index.styles.scss';
 
-export const CollectionPage = ({ match }) => {
+const CollectionPage = ({ match }) => {
   const { collection } = useCollectionData(match.params.collectionId);
 
   const itemsJSX = collection.items.map(({ id, name, price, imageUrl }) => (
@@ -25,3 +25,4 @@ export const CollectionPage = ({ match }) => {
   )
 };
 
+export default CollectionPage;

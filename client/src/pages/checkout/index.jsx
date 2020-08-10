@@ -7,7 +7,7 @@ import { Checkout, Shape } from '../../components';
 // Other
 import './index.styles.scss';
 
-export const CheckoutPage = () => {
+const CheckoutPage = () => {
   return (
     <div className='checkoutPage'>
       <Shape type='tertiary' width={40} height={60} top={-15} left={-15} />
@@ -16,3 +16,5 @@ export const CheckoutPage = () => {
     </div>
   )
 };
+
+export default CheckoutPage;

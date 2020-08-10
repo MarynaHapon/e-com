@@ -1,26 +1,23 @@
 // Core
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 // Hooks
 import { useUserData } from './hook/useUserData';
 
-// Pages
-import {
-  HomePage,
-  ShopPage,
-  AuthPage,
-  CheckoutPage,
-} from './pages';
-
 // Hooks
 import { useCheckUserSession } from './hook/useCheckUserSession';
 
 // Components
-import { Header, Footer } from './components';
+import { Header, Footer, Spinner } from './components';
 
 // Other
 import { GlobalStyle } from './global.styles'
+
+const HomePage = lazy(() => import('./pages/home/index'));
+const ShopPage = lazy(() => import('./pages/shop/index'));
+const AuthPage = lazy(() => import('./pages/auth/index'));
+const CheckoutPage = lazy(() => import('./pages/checkout/index'));
 
 function App() {
   useCheckUserSession();
@@ -33,10 +30,12 @@ function App() {
       <GlobalStyle />
       <Header />
       <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route path='/shop' component={ShopPage} />
-        <Route exact path='/auth' render={authRenderHandler} />
-        <Route exact path='/checkout' component={CheckoutPage} />
+        <Suspense fallback={<Spinner />}>
+          <Route exact path='/' component={HomePage} />
+          <Route path='/shop' component={ShopPage} />
+          <Route exact path='/auth' render={authRenderHandler} />
+          <Route exact path='/checkout' component={CheckoutPage} />
+        </Suspense>
       </Switch>
       <Footer />
     </>
