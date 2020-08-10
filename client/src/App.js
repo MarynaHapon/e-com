@@ -20,7 +20,7 @@ import { useCheckUserSession } from './hook/useCheckUserSession';
 import { Header, Footer } from './components';
 
 // Other
-import './App.css';
+import { GlobalStyle } from './global.styles'
 
 function App() {
   useCheckUserSession();
@@ -30,6 +30,7 @@ function App() {
 
   return (
     <>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path='/' component={HomePage} />
