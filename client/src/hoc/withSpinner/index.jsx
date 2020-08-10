@@ -1,15 +1,8 @@
 // Core
 import React from 'react';
 
-// Other
-import { SpinnerContainer, SpinnerOverlay } from './index.styles';
+// Components
+import { Spinner } from '../../components';
 
-export const WithSpinner = (Component) => {
-  return ({ isLoading, ...props }) => isLoading ? (
-    <SpinnerOverlay>
-      <SpinnerContainer/>
-    </SpinnerOverlay>
-    ) : (
-    <Component {...props} />
-  )
-};
+export const WithSpinner = (Component) => ({ isLoading, ...props }) =>
+  isLoading ? <Spinner /> : <Component {...props} />;
