@@ -9,7 +9,6 @@ import './index.styles.scss';
 import { Container } from './index.styles';
 
 const HomePage = () => {
-  throw Error;
   return (
     <Container>
       <Shape type='primary' width={65} height={100} top={-5} left={-10} />
