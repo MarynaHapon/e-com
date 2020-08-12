@@ -10,7 +10,7 @@ import { CollectionPreview } from '../../components';
 // Other
 import './index.styles.scss';
 
-export const CollectionOverview = () => {
+const CollectionOverview = () => {
   const { shopData } = useShopData();
 
   const collectionsJSX = shopData
@@ -24,3 +24,5 @@ export const CollectionOverview = () => {
     </section>
   );
 };
+
+export default CollectionOverview;

@@ -13,13 +13,17 @@ import './index.styles.scss';
 const CollectionPage = ({ match }) => {
   const { collection } = useCollectionData(match.params.collectionId);
 
-  const itemsJSX = collection.items.map(({ id, name, price, imageUrl }) => (
+  const titleJSX = collection && (
+    <Headline>{collection.title}</Headline>
+  );
+
+  const itemsJSX = collection && collection.items.map(({ id, name, price, imageUrl }) => (
     <CollectionItem key={id} id={id} name={name} price={price} imageUrl={imageUrl} />
   ));
 
   return (
     <section className='collectionPage'>
-      <Headline>{collection.title}</Headline>
+      {titleJSX}
       <div className='items'>{itemsJSX}</div>
     </section>
   )
