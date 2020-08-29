@@ -10,6 +10,7 @@ import App from './App';
 
 // Other
 import { store, persistor } from './store';
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -23,3 +24,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+serviceWorker.register();
