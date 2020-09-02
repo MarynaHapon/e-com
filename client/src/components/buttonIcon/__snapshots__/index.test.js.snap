@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect to render ButtonIcon component 1`] = `
+<button
+  className="collectionItemButton buttonIcon primary"
+  onClick={[Function]}
+  type="button"
+>
+  <svg />
+</button>
+`;
